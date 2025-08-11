@@ -1,0 +1,30 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="16" cy="16" r="15" fill="#2563eb"/>
+  
+  <!-- Inner Circle -->
+  <circle cx="16" cy="16" r="13" fill="#3b82f6"/>
+  
+  <!-- Bus Icon Simplified -->
+  <g transform="translate(16, 15)">
+    <!-- Body -->
+    <rect x="-7" y="-5" width="14" height="8" rx="2" fill="white"/>
+    
+    <!-- Windows -->
+    <rect x="-5" y="-3" width="3" height="3" rx="0.5" fill="#2563eb"/>
+    <rect x="-1" y="-3" width="3" height="3" rx="0.5" fill="#2563eb"/>
+    <rect x="2" y="-3" width="3" height="3" rx="0.5" fill="#2563eb"/>
+    
+    <!-- Wheels -->
+    <circle cx="-4" cy="4" r="1.5" fill="#1e293b"/>
+    <circle cx="4" cy="4" r="1.5" fill="#1e293b"/>
+  </g>
+  
+  <!-- Motion Line -->
+  <rect x="4" y="14" width="4" height="1" rx="0.5" fill="white" opacity="0.8"/>
+  <rect x="4" y="16" width="3" height="1" rx="0.5" fill="white" opacity="0.6"/>
+  
+  <!-- Route Dots -->
+  <circle cx="8" cy="8" r="1" fill="#ef4444" opacity="0.9"/>
+  <circle cx="24" cy="8" r="1" fill="#10b981" opacity="0.9"/>
+</svg>

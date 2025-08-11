@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favicon Generator</title>
+</head>
+<body>
+    <p>Note: This is a placeholder. To generate a proper .ico file, use the favicon.svg with an online converter or tool.</p>
+    <p>Recommended: Use favicon.svg directly in HTML as modern browsers support SVG favicons.</p>
+</body>
+</html>
