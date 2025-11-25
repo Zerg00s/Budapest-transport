@@ -32,35 +32,49 @@ document.addEventListener('DOMContentLoaded', function() {
                 elem.textContent = elem.dataset.ru;
             } else if (lang === 'ua') {
                 elem.textContent = elem.dataset.ua;
+            } else if (lang === 'hu') {
+                elem.textContent = elem.dataset.hu;
             }
         });
-        
+
         // Update placeholders
         document.querySelectorAll('[data-ru-placeholder]').forEach(elem => {
             if (lang === 'ru') {
                 elem.placeholder = elem.dataset.ruPlaceholder;
             } else if (lang === 'ua') {
                 elem.placeholder = elem.dataset.uaPlaceholder;
+            } else if (lang === 'hu') {
+                elem.placeholder = elem.dataset.huPlaceholder;
             }
         });
-        
+
         // Update select first option
         document.querySelectorAll('select[data-ru-first]').forEach(elem => {
             if (lang === 'ru') {
                 elem.options[0].textContent = elem.dataset.ruFirst;
             } else if (lang === 'ua') {
                 elem.options[0].textContent = elem.dataset.uaFirst;
+            } else if (lang === 'hu') {
+                elem.options[0].textContent = elem.dataset.huFirst;
             }
         });
-        
+
         // Update HTML lang attribute
-        document.documentElement.lang = lang === 'ua' ? 'uk' : 'ru';
-        
+        if (lang === 'ua') {
+            document.documentElement.lang = 'uk';
+        } else if (lang === 'hu') {
+            document.documentElement.lang = 'hu';
+        } else {
+            document.documentElement.lang = 'ru';
+        }
+
         // Update page title
         if (lang === 'ru') {
             document.title = 'TransitBudapest - Пассажирские перевозки в Будапеште';
         } else if (lang === 'ua') {
             document.title = 'TransitBudapest - Пасажирські перевезення в Будапешті';
+        } else if (lang === 'hu') {
+            document.title = 'TransitBudapest - Személyszállítás Budapesten';
         }
     }
 });
@@ -119,9 +133,16 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Show success message (in production, this would send to a server)
             const currentLang = localStorage.getItem('language') || 'ru';
-            const successMessage = currentLang === 'ru' 
-                ? 'Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.'
-                : 'Дякуємо! Вашу заявку надіслано. Ми зв\'яжемося з вами найближчим часом.';
+            let successMessage;
+            if (currentLang === 'ru') {
+                successMessage = 'Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.';
+            } else if (currentLang === 'ua') {
+                successMessage = 'Дякуємо! Вашу заявку надіслано. Ми зв\'яжемося з вами найближчим часом.';
+            } else if (currentLang === 'hu') {
+                successMessage = 'Köszönjük! Kérését elküldtük. Hamarosan felvesszük Önnel a kapcsolatot.';
+            } else {
+                successMessage = 'Thank you! Your request has been sent. We will contact you soon.';
+            }
             
             alert(successMessage);
             
@@ -235,9 +256,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // Booking button functionality
 document.addEventListener('DOMContentLoaded', function() {
     const bookingButtons = document.querySelectorAll('.btn-primary');
-    
+
     bookingButtons.forEach(btn => {
-        if (btn.textContent.includes('Заказать') || btn.textContent.includes('Замовити')) {
+        if (btn.textContent.includes('Заказать') || btn.textContent.includes('Замовити') || btn.textContent.includes('foglalás')) {
             btn.addEventListener('click', function(e) {
                 if (!this.closest('form')) {
                     e.preventDefault();
