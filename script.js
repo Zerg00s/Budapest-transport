@@ -6,12 +6,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set initial language
     setLanguage(currentLang);
     
+    // Remove active class from all buttons first (fixes initialization bug)
+    langButtons.forEach(btn => btn.classList.remove('active'));
+
     // Language button click handlers
     langButtons.forEach(btn => {
         if (btn.dataset.lang === currentLang) {
             btn.classList.add('active');
         }
-        
+
         btn.addEventListener('click', function() {
             const lang = this.dataset.lang;
             setLanguage(lang);
